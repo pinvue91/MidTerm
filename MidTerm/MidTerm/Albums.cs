@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MidTerm
 {
-    class Vinyl
+    class Albums
     {
         public string Title { get; set; }
         public Genre Category { get; set; }
@@ -12,9 +12,9 @@ namespace MidTerm
         public string Review { get; set; }
         public double Price { get; set; }
 
-        public Vinyl()
+        public Albums()
         { }
-        public Vinyl(string Title, Genre Category, string Description, string Review, double Price)
+        public Albums(string Title, Genre Category, string Description, string Review, double Price)
         {
             this.Title = Title;
             this.Category = Category;

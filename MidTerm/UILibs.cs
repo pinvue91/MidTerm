@@ -34,7 +34,6 @@ namespace UILibs
             }
 
             integer = int.Parse(userResponse);
-            integer--;
 
             return integer;
         }

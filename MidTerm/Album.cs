@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MidTerm
 {
-    class Albums
+     public class Albums
     {
         public string Title { get; set; }
         public Genre Category { get; set; }
@@ -42,6 +42,11 @@ namespace MidTerm
             Console.WriteLine($"Description: {Description}");
         }
 
+        public void PrintAlbum()
+
+        {
+            Console.WriteLine($"{Title}");
+        }
        
         
 

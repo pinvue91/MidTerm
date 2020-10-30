@@ -13,7 +13,7 @@ namespace MidTerm
         public List<Albums> ShoppingCart { get; set; }
         public static void Start()
         {
-            MyLibs.ConsoleLibrary.DrawTitle("Welcome to GC Records");
+            UILibs.ConsoleLibrary.DrawTitle("Welcome to GC Records");
 
             while (true)
             {

@@ -59,6 +59,27 @@ namespace UILibs
             return selection;
         }
 
+        public static int GetMenuSelection<T>(string prompt, List<T> options, List<string> UIOptions)
+        {
+            string userResponse = GetUserResponse(prompt);
+            int selection;
+
+            while (!IsInteger(userResponse))
+            {
+                userResponse = GetUserResponse($"I need a numerical response. 1-{options.Count + 1} {prompt}");
+            }
+
+            selection = int.Parse(userResponse);
+            selection--;
+
+            while (!OptionExists(selection, options, UIOptions))
+            {
+                selection = GetMenuSelection($"Invalid entry. {prompt}", options, UIOptions);
+            }
+
+            return selection;
+        }
+
         public static bool GetYesOrNoInput(string prompt)
         {
             string response = GetUserResponse($"{prompt} (y/n) ").ToLower();
@@ -110,6 +131,11 @@ namespace UILibs
         public static bool OptionExists<T>(int selection, List<T> options)
         {
             return selection >= 0 && selection < options.Count;
+        }
+
+        public static bool OptionExists<T>(int selection, List<T> options, List<string> UIOptions)
+        {
+            return selection >= 0 && selection < options.Count + UIOptions.Count;
         }
 
         public static bool IsValidDate(string name)

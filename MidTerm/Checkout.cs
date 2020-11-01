@@ -10,9 +10,9 @@ namespace MidTerm
     {
         public static List<Albums> albums = new List<Albums>() 
         { 
-            new Albums("Album 1", Genre.Pop, "Band 1", "9/10", 14.50),
-            new Albums("Album 2", Genre.Rock, "Band 2", "8/10", 10.00),
-            new Albums("Album 3", Genre.Jazz, "Band 3", "7/10", 13.75),
+            new Albums("Aquarium", Genre.Pop, "Aqua", "7/10", 7.00),
+            new Albums("Hotel California", Genre.Rock, "Eagles", "10/10", 9.00),
+            new Albums("Millenium", Genre.Pop, "Backstreet Boys", "9/10", 8.00),
         };
 
         public static List<ItemOrder> ShoppingBag = new List<ItemOrder>();

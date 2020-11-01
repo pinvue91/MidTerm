@@ -176,12 +176,20 @@ namespace UILibs
     {
         public static void DrawTitle(string title)
         {
-            string hr = new string('-', title.Length);
+            string hr = new string('=', title.Length);
             Console.WriteLine(title);
             Console.WriteLine(hr);
             Console.WriteLine();
         }
-        public static void DrawHr(int length)
+
+        public static void DrawSectionHeading(string title)
+        {
+            string hr = new string('-', title.Length);
+            Console.WriteLine(title);
+            Console.WriteLine(hr);
+        }
+
+        private static void DrawHr(int length)
         {
             string hr = new string('-', length);
             Console.WriteLine(hr);

@@ -17,89 +17,96 @@ namespace MidTerm
 
         public static List<ItemOrder> ShoppingBag = new List<ItemOrder>();
 
-        public static List<string> UIOptions = new List<string> { "Trade In" };
+        public static List<string> actions = new List<string> { "View Inventory", "Trade In", "Quit" };
         public static void Start()
         { 
             while (true)
             {
-                UILibs.ConsoleLibrary.DrawTitle("Welcome to GC Records");
+                UILibs.ConsoleLibrary.DrawTitle("Welcome to GC Records!");
 
                 if (ShoppingBagHasItems())
                 {
-                    UIOptions.Add("Checkout");
+                    actions.Insert(2, "Check Out");
                 }
 
-                PrintCatalogue(albums);
-                PrintUIOptions(albums, UIOptions);
+                PrintActions(actions);
 
-                int selection = UILibs.UserInputLibrary.GetMenuSelection("Which item would you like to buy? ", albums, UIOptions);
-                //if selection is not a menu option run addtoshoppingcart
-                if (selection < albums.Count)
-                {
-                    AddItemToShoppingCart(selection);
-                }
-                else 
-                {
-                    Console.WriteLine("Coming soon");
-                }
+                int selection = UILibs.UserInputLibrary.GetMenuSelection("What would you like to do? ", actions);
+
+                RunAction(actions, selection);
 
                 if (ShoppingBagHasItems())
                 {
-                    PrintShoppingCart();
+                    PrintShoppingBag();
                 }
 
-                if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? We have lots of great stuff", "Invalid entry"))
-                {
-                    Console.WriteLine("Ok, let's ring you up!");
-                    GetPaymentMethod();
-                }
-                else 
-                {
-                    Console.Clear();
-                    continue;
-                }
             }
         }
 
         public static void PrintCatalogue(List<Albums> catalogue)
         {
-            UILibs.ConsoleLibrary.DrawTitle("Current Catalogue");
+            UILibs.ConsoleLibrary.DrawSectionHeading("Current Catalogue");
 
             for (int i = 0; i < catalogue.Count; i++)
             {
-                Console.WriteLine($"{i + 1} {GetRecordInfo(catalogue[i])}");
-            }
-        }
-
-        public static void PrintUIOptions(List<Albums> catalogue, List<string> UIOptions)
-        {
-            int count = catalogue.Count + UIOptions.Count;
-
-            if (UIOptions.Count > 1)
-            {
-                count--;
-            }
-            
-            foreach (string option in UIOptions)
-            {
-                Console.WriteLine($"{count} {option}");
-                count++;
+                Console.WriteLine($"{i + 1}) {GetRecordInfo(catalogue[i])}");
             }
 
             Console.WriteLine();
         }
 
-        public static string GetRecordInfo(Albums record)
+        public static void PrintActions(List<string> actions)
         {
-            return $"{record.Title} by {record.Description}. Price: {record.Price}";
+            UILibs.ConsoleLibrary.DrawSectionHeading("Available Actions");
+
+            for (int i = 0; i < actions.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} {actions[i]}");
+            }
+
+            Console.WriteLine();
         }
 
-        public static void AddItemToShoppingCart(int selection)
+        public static void RunAction(List<string> actions, int selection)
+        {
+            if (actions[selection] == "View Inventory")
+            {
+                AddItemToShoppingCart();
+            }
+            else if (actions[selection] == "Trade In")
+            {
+                //TradeIn();
+                Console.WriteLine("What're ya selling?!?");
+            }
+            else if (actions[selection] == "Check Out")
+            {
+                //CompletePurchase();
+                GetPaymentMethod();
+            }
+            else if (actions[selection] == "Quit")
+            {
+                Console.WriteLine("Alrighty, see ya next time!");
+                Thread.Sleep(2000);
+                return;
+            }
+        }
+
+        public static string GetRecordInfo(Albums record)
+        {
+            return $"{record.Title} by {record.Description} | ${record.Price}";
+        }
+
+        public static void AddItemToShoppingCart()
         {
             Console.Clear();
-            Console.WriteLine($"You have selected: {GetRecordInfo(albums[selection])}");
+            PrintCatalogue(albums);
 
+            int itemNum = UILibs.UserInputLibrary.GetMenuSelection("Enter Item Number to add to cart ", albums);
+            Console.Clear();
+
+            Console.WriteLine($"You have selected: {GetRecordInfo(albums[itemNum])}");
             int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? ", 10);
+
             if (quantity == 0)
             {
                 Console.WriteLine("Changed your mind? Not a problem, happens all the time");
@@ -108,28 +115,49 @@ namespace MidTerm
                 return;
             }
 
-            double totalForSelection = albums[selection].Price * quantity;
+            Console.Clear();
+            double totalForSelection = albums[itemNum].Price * quantity;
 
-            Console.WriteLine($"{quantity} copies of {albums[selection].Title}, That'll be {totalForSelection}");
+            Console.WriteLine($"{quantity} copies of {albums[itemNum].Title}, That'll be ${totalForSelection}");
 
             if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure?"))
             {
-                ShoppingBag.Add(new ItemOrder(albums[selection].Title, quantity, albums[selection].Price));
+                ShoppingBag.Add(new ItemOrder(albums[itemNum].Title, quantity, albums[itemNum].Price));
                 Console.WriteLine("Great, I've added that to your bag!");
             }
             else 
             {
                 Console.WriteLine("Not a problem, let us know if you change your mind.");
             }
+
+            Console.Clear();
+            PrintCatalogue(albums);
+
+            if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))
+            {
+                Console.Clear();
+                return;
+            }
         }
 
-        public static void PrintShoppingCart()
+        public static void PrintShoppingBag()
         {
             UILibs.ConsoleLibrary.DrawTitle("Here's your current order");
             foreach (ItemOrder order in ShoppingBag)
             {
                 Console.WriteLine(order.GetOrderInfo());
             }
+            Console.WriteLine();
+        }
+
+        public static void CompletePurchase()
+        { 
+        
+        }
+
+        public static void Tradein()
+        { 
+        
         }
 
         public static void GetPaymentMethod()

@@ -123,6 +123,25 @@ namespace UILibs
             return dateString;
         }
 
+        public static string GetCheckNumber(string prompt)
+        {
+            string num = GetUserResponse(prompt);
+
+            while (!IsValidCheckNumber(num))
+            {
+                num = GetUserResponse(prompt);
+            }
+
+            return num;
+        }
+
+        public static bool IsValidCheckNumber(string number)
+        {
+            Regex rx = new Regex(@"\d{8}");
+
+            return rx.IsMatch(number);
+        }
+
         public static bool IsInteger(string response)
         {
             return response.All(char.IsDigit);

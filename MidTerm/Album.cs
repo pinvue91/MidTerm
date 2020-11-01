@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace MidTerm
 {
@@ -17,23 +15,27 @@ namespace MidTerm
         public string Year { get; set; }
         public string Description { get; set; }
 
+        StreamReader reader = new StreamReader(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt");
         public Albums()
         { }
 
         //public Albums(string line)
         //{
-        //var listOfObjects = File.ReadLines(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt").Select(line => new Albums(line)).ToList();
+        //    var listOfObjects = File.ReadLines(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt").Select(line => new Albums(line)).ToList();
         //    var split = line.Split(',');
         //    Title = split[0];
         //    Category = split[1];
         //    Artist = split[2];
         //    Rating = split[3];
-        //    Price = Convert.ToDouble(split[4]);
-        //    DateTime = Convert.ToDateTime(split[5]);
+        //    Price = split[4];
+        //    Year = split[5];
         //    Description = split[6];
+
+
         //}
         public Albums(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description)
         {
+            // Title = line[0];
             this.Title = Title;
             this.Category = Category;
             this.Artist = Artist;
@@ -42,32 +44,45 @@ namespace MidTerm
             this.Year = Year;
             this.Description = Description;
         }
-        public void ReadCsv()
+
+
+
+
+
+
+        public static Albums FromCsv(string csvline)
         {
-            var status = new List<Albums>();
-            var lines = File.ReadAllLines(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt").Skip(1);
 
-            foreach (var line in lines)
+            string[] values = csvline.Split(',');
+
+            Albums albums = new Albums();
+            //  while (!Albums.EndOfStream)
             {
-                var values = line.Split(",");
-                var stats = new Albums();
-                var props = typeof(Albums).GetProperties();
-              
-
-                for (int i = 0; i < values.Length-1; i++)
+                for (int i = 0; i < values.Length; i++)
                 {
-                    props[i].SetValue(stats, values[i]);
+
+
+                    albums.Title = (values[0]);
+                    albums.Category = (values[1]);
+                    albums.Artist = (values[2]);
+                    albums.Rating = (values[3]);
+                    albums.Price = (values[4]);
+                    albums.Year = (values[5]);
+                    albums.Description = (values[6]);
+
+
                 }
-                status.Add(stats);
+
             }
+
+            return albums;
 
         }
 
 
 
 
-
-        public virtual void PrintInfo()
+        public void PrintInfo()
         {
             Console.WriteLine();
             Console.WriteLine($"Title: {Title}");
@@ -76,33 +91,18 @@ namespace MidTerm
             Console.WriteLine($"Review: { Rating}");
             Console.WriteLine($"Price: {Price}");
             Console.WriteLine($"Description: {Description}");
+            Console.WriteLine();
+
         }
 
 
-        //public List<Albums> GetAlbums(string[] csvArray)
-        //{
-        //    List<Albums> albums = new List<Albums> { };
-        //    String[] csv = File.ReadAllLines(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt");
-        //    foreach (string item in csv)
-        //    {
-        //        var fields = item.Split(',');
-        //        var row = albums.ToList();
-        //    }
 
 
-        //    using (var reader = new StreamReader(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt"))
-        //    {
-        //        string line = reader.ReadLine();
-        //        var values = line.Split(',');
-        //    }
-        //    return albums;
-        //}
-
-        public void PrintAlbum()
-
+        public virtual void Preview()
         {
-            Console.WriteLine($"{Title}");
+
         }
+
 
 
 

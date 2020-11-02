@@ -102,7 +102,7 @@ namespace MidTerm
                     Console.WriteLine("Not a problem, let us know if you change your mind.");
                     Thread.Sleep(1500);
                     Console.Clear();
-                    break;
+                    continue;
                 }
 
                 if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))

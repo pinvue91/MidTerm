@@ -214,6 +214,11 @@ namespace MidTerm
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Purchase Receipt");
 
+            foreach (ItemOrder item in ShoppingBag)
+            {
+                Console.WriteLine($"{item.ItemName} x {item.Quantity} = {item.OrderTotal}");
+            }
+
             Console.WriteLine();
             Console.WriteLine($"Subtotal:  \t{subtotal}");
             Console.WriteLine($"Sales Tax: \t{(taxDue):0.00}");

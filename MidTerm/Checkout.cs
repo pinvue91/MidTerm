@@ -68,45 +68,45 @@ namespace MidTerm
 
         public void AddItemToShoppingCart()
         {
-            Console.Clear();
-            PrintCatalogue(Albums);
-
-            int itemNum = UILibs.UserInputLibrary.GetMenuSelection("Enter Item Number to add to cart ", Albums);
-            Console.Clear();
-
-            Console.WriteLine($"You have selected: {GetRecordInfo(Albums[itemNum])}");
-            int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? ", 10);
-
-            if (quantity == 0)
-            {
-                Console.WriteLine("Changed your mind? Not a problem, happens all the time");
-                Thread.Sleep(1500);
-                AddItemToShoppingCart();
-            }
-
-            Console.Clear();
-            double albumPrice = double.Parse(Albums[itemNum].Price);
-            double totalForSelection = albumPrice * quantity;
-
-            Console.WriteLine($"{quantity} copies of {Albums[itemNum].Title}, That'll be ${totalForSelection}");
-
-            if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure?"))
-            {
-                ShoppingBag.Add(new ItemOrder(Albums[itemNum].Title, quantity, albumPrice));
-                Console.WriteLine("Great, I've added that to your bag!");
-            }
-            else
-            {
-                Console.WriteLine("Not a problem, let us know if you change your mind.");
-            }
-
-            Console.Clear();
-            PrintCatalogue(Albums);
-
-            if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))
+            while (true)
             {
                 Console.Clear();
-                return;
+                PrintCatalogue(Albums);
+
+                int itemNum = UILibs.UserInputLibrary.GetMenuSelection("Enter Item Number to add to cart ", Albums);
+                Console.Clear();
+
+                Console.WriteLine($"You have selected: {GetRecordInfo(Albums[itemNum])}");
+                int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? ", 10);
+
+                if (quantity == 0)
+                {
+                    Console.WriteLine("Changed your mind? Not a problem, happens all the time");
+                    Thread.Sleep(1500);
+                    AddItemToShoppingCart();
+                }
+
+                Console.Clear();
+                double albumPrice = double.Parse(Albums[itemNum].Price);
+                double totalForSelection = albumPrice * quantity;
+
+                Console.WriteLine($"{quantity} copies of {Albums[itemNum].Title}, That'll be ${totalForSelection}");
+
+                if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure?"))
+                {
+                    ShoppingBag.Add(new ItemOrder(Albums[itemNum].Title, quantity, albumPrice));
+                    Console.WriteLine("Great, I've added that to your bag!");
+                }
+                else
+                {
+                    Console.WriteLine("Not a problem, let us know if you change your mind.");
+                }
+
+                if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))
+                {
+                    Console.Clear();
+                    break;
+                }
             }
         }
 
@@ -165,7 +165,7 @@ namespace MidTerm
 
             if (options[selection] == "Cash")
             {
-                Cash.PayWithCash(50);
+                Cash.PayWithCash(GetOrderTotal(ShoppingBag));
             }
             else if (options[selection] == "Credit")
             {
@@ -191,16 +191,15 @@ namespace MidTerm
 
         public static void PrintShoppingBag()
         {
-            double subtotal = 0;
+            double subtotal = GetOrderTotal(ShoppingBag);
             double taxRate = 0.06;
             double taxToCollect; ;
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Here's your current order");
 
-            foreach (ItemOrder order in ShoppingBag)
+            foreach (ItemOrder item in ShoppingBag)
             {
-                Console.WriteLine(order.GetOrderInfo());
-                subtotal += order.OrderTotal;
+                Console.WriteLine($"{item.ItemName} x {item.Quantity} = {item.OrderTotal}");
             }
 
             Console.WriteLine();
@@ -213,17 +212,11 @@ namespace MidTerm
 
         public static void PrintReceipt()
         {
-            double subtotal = 0;
+            double subtotal = GetOrderTotal(ShoppingBag);
             double taxRate = 0.06;
             double taxToCollect;
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Purchase Receipt");
-
-            foreach (ItemOrder order in ShoppingBag)
-            {
-                Console.WriteLine(order.GetOrderInfo());
-                subtotal += order.OrderTotal;
-            }
 
             Console.WriteLine();
             Console.WriteLine($"Subtotal:  \t{subtotal}");
@@ -233,6 +226,18 @@ namespace MidTerm
             Console.WriteLine();
         }
 
+        public static double GetOrderTotal(List<ItemOrder> shoppingBag)
+        {
+            double total = 0;
+
+            foreach (ItemOrder order in ShoppingBag)
+            {
+                Console.WriteLine(order.GetOrderInfo());
+                total += order.OrderTotal;
+            }
+
+            return total;
+        }
         public static void PrintActions(List<string> actions)
         {
             UILibs.ConsoleLibrary.DrawSectionHeading("Available Actions");

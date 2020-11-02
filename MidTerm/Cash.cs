@@ -20,7 +20,7 @@ namespace MidTerm
 
 
         //Methods
-        public static void PayWithCash(int totalPrice)
+        public static void PayWithCash(double totalPrice)
         {
             bool enoughCash = false;
 
@@ -28,7 +28,7 @@ namespace MidTerm
 
             int cashPayment = int.Parse(Console.ReadLine());
 
-            int change = cashPayment - totalPrice;
+            double change = cashPayment - totalPrice;
 
             while (enoughCash == false)
             {
@@ -51,11 +51,10 @@ namespace MidTerm
             Thread.Sleep(1000);
             Console.Clear();
 
-            UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            //Checkout.PrintShoppingBag();
+            Checkout.PrintReceipt();
             Console.WriteLine($"Total Cash Payment: {cashPayment}");
-            Console.WriteLine($"Total Change: {change}");
-
+            Console.WriteLine($"Total Change: {change:0.00}");
+            Thread.Sleep(5000);
         }
 
 

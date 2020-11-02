@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace MidTerm
 {
@@ -16,7 +17,23 @@ namespace MidTerm
         }
 
         //Override Methods
+        public static void PayWithCheck()
+        {
+            string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number: ");
+            Console.WriteLine($"Ok, everything looks good here. ");
+            Thread.Sleep(1000);
+            Console.Clear();
 
+            Console.WriteLine("Thanks for shopping with us. Here's your receipt\n");
+
+            Checkout.PrintReceipt();
+            Console.WriteLine($"Paid with check #: {checkNum}");
+
+            Thread.Sleep(3500);
+            Console.Clear();
+            Checkout.ShoppingBag = new List<ItemOrder>();
+            Checkout.actions.RemoveAt(2);
+        }
 
     }
 }

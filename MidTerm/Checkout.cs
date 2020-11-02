@@ -170,7 +170,7 @@ namespace MidTerm
             }
             else
             {
-                PayWithCheck();
+                Check.PayWithCheck();
             }
         }
 
@@ -244,24 +244,6 @@ namespace MidTerm
             }
 
             Console.WriteLine();
-        }
-
-        public static void PayWithCheck()
-        {
-            string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number: ");
-            Console.WriteLine($"Ok, everything looks good here. ");
-            Thread.Sleep(1000);
-            Console.Clear();
-
-            Console.WriteLine("Thanks for shopping with us. Here's your receipt\n");
-            
-            PrintReceipt();
-            Console.WriteLine($"Paid with check #: {checkNum}");
-
-            Thread.Sleep(3500);
-            Console.Clear();
-            ShoppingBag = new List<ItemOrder>();
-            actions.RemoveAt(2);
         }
     }
 }

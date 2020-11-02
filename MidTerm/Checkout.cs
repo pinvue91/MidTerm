@@ -123,24 +123,6 @@ namespace MidTerm
             Console.WriteLine();
         }
 
-        //public void TradeIn()
-        //{
-        //    Console.Clear();
-        //    UILibs.ConsoleLibrary.DrawSectionHeading("What're ya selling?!?");
-
-        //    string title = UILibs.UserInputLibrary.GetUserResponse("What's the name of your album? ");
-        //    string artist = UILibs.UserInputLibrary.GetUserResponse("What's the name the artist? ");
-        //    string category = UILibs.UserInputLibrary.GetUserResponse("What's the genre of this album? ");
-        //    string rating = UILibs.UserInputLibrary.GetUserResponse("What rating would you give this album? ");
-        //    string year = UILibs.UserInputLibrary.GetUserResponse("What year was this album released? ");
-        //    string description = UILibs.UserInputLibrary.GetUserResponse("Give a brief description of this album ");
-
-        //    Albums.Add(new Album(title, category, artist, rating, "10", year, description));
-        //    Console.WriteLine($"Alright, {title} by {artist}...I can give you about $3.50");
-        //    Thread.Sleep(1000);
-        //    Console.Clear();
-        //}
-
         public static void CompletePurchase()
         {
             Console.Clear();

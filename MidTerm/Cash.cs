@@ -56,6 +56,10 @@ namespace MidTerm
             Console.WriteLine($"Total Cash Payment: {cashPayment}");
             Console.WriteLine($"Total Change: {change:0.00}");
             Thread.Sleep(5000);
+
+            Console.Clear();
+            Checkout.ShoppingBag = new List<ItemOrder>();
+            Checkout.actions.RemoveAt(2);
         }
 
 

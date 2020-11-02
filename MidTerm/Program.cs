@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.IO;
 
 namespace MidTerm
 {
@@ -6,7 +9,10 @@ namespace MidTerm
     {
         static void Main(string[] args)
         {
-            Checkout.Start();
+            //RecordStore bob = new RecordStore();
+            List<Album> albums = File.ReadAllLines("../../../MidtermAlbums.txt").Skip(1).Select(v => Album.FromCsv(v)).ToList();
+            Checkout co = new Checkout(albums);
+            co.Start();
         }
     }
 }

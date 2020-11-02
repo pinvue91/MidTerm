@@ -52,7 +52,7 @@ namespace MidTerm
             Console.Clear();
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            Checkout.PrintShoppingBag();
+            //Checkout.PrintShoppingBag();
             Console.WriteLine($"Total Cash Payment: {cashPayment}");
             Console.WriteLine($"Total Change: {change}");
 

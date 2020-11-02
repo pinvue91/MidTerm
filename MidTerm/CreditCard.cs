@@ -47,7 +47,7 @@ namespace MidTerm
             Console.Clear();
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            Checkout.PrintShoppingBag();
+            //Checkout.PrintShoppingBag();
             Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW: {cw}");
 
         }

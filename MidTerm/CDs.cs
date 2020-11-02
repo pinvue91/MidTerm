@@ -4,22 +4,11 @@ using System.Text;
 
 namespace MidTerm
 {
-<<<<<<< HEAD
-    class CDs
+    class CDs:Album
     {
-=======
-
-    class CDs:Albums
-
-
-    {
-        public override void Preview()
-        {
-            Console.WriteLine("Which CD would you like to preview?");
-            Console.WriteLine();
-        }
         public CDs()
         { }
+
         public CDs(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description):base(Title,Category,Artist, Rating, Price, Year, Description)
         {
             this.Title = Title;
@@ -30,6 +19,11 @@ namespace MidTerm
             this.Year = Year;
             this.Description = Description;
         }
->>>>>>> Duncan
+
+        public override void Preview()
+        {
+            Console.WriteLine("Which CD would you like to preview?");
+            Console.WriteLine();
+        }
     }
 }

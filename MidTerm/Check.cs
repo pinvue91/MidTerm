@@ -27,7 +27,7 @@ namespace MidTerm
             Console.WriteLine("Thanks for shopping with us. Here's your receipt\n");
 
             Checkout.PrintReceipt();
-            Console.WriteLine($"Paid with check #: {checkNum}");
+            Console.WriteLine($"Paid in full with check #: {checkNum}");
 
             Thread.Sleep(3500);
             Console.Clear();

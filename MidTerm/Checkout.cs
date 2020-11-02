@@ -162,7 +162,7 @@ namespace MidTerm
 
             if (options[selection] == "Cash")
             {
-                Cash.PayWithCash(GetOrderTotal(ShoppingBag));
+                Cash.PayWithCash(CalculateTotalWithTax());
             }
             else if (options[selection] == "Credit")
             {
@@ -210,16 +210,14 @@ namespace MidTerm
         public static void PrintReceipt()
         {
             double subtotal = GetOrderTotal(ShoppingBag);
-            double taxRate = 0.06;
-            double taxToCollect;
+            double taxDue = CalculateTaxDue();;
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Purchase Receipt");
 
             Console.WriteLine();
             Console.WriteLine($"Subtotal:  \t{subtotal}");
-            taxToCollect = subtotal * taxRate;
-            Console.WriteLine($"Sales Tax: \t{(taxToCollect):0.00}");
-            Console.WriteLine($"Total:     \t{subtotal + taxToCollect:0.00}");
+            Console.WriteLine($"Sales Tax: \t{(taxDue):0.00}");
+            Console.WriteLine($"Total:     \t{CalculateTotalWithTax():0.00}");
             Console.WriteLine();
         }
 
@@ -233,6 +231,16 @@ namespace MidTerm
             }
 
             return total;
+        }
+
+        public static double CalculateTotalWithTax()
+        {
+            return GetOrderTotal(ShoppingBag) + CalculateTaxDue();
+        }
+
+        public static double CalculateTaxDue()
+        {
+            return GetOrderTotal(ShoppingBag) * .06;
         }
         public static void PrintActions(List<string> actions)
         {

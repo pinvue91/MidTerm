@@ -80,7 +80,8 @@ namespace MidTerm
             Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW: {cw}");
             Thread.Sleep(1500);
             Console.Clear();
-
+            Checkout.ShoppingBag = new List<ItemOrder>();
+            Checkout.actions.RemoveAt(2);
         }
 
         public static bool CCNumberValidation(string input)

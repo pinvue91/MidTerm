@@ -30,9 +30,9 @@ namespace MidTerm
                 albumToAdd.Year = albumArray[5];
                 albumToAdd.Description = albumArray[6];
 
+                albumRead = reader.ReadLine();
                 albumList.Add(albumToAdd);
 
-                albumRead = reader.ReadLine();
 
             }
 
@@ -54,12 +54,17 @@ namespace MidTerm
             a.Price = Console.ReadLine();
             Console.WriteLine("What year did this album come out?");
             a.Year = Console.ReadLine();
+            Console.WriteLine("What's a quick description for this album?");
+            a.Description = Console.ReadLine();
+           
 
 
             albumList.Add(a);
 
             Console.WriteLine();
             Console.WriteLine($"Thanks for selling {a.Title} to us! Here's $3. That's all I have. Have a nice day!");
+
+            
 
             StreamWriter streamWriter = new StreamWriter("../../../MidtermAlbums.txt");
             foreach (Album album in albumList)

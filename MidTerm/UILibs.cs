@@ -129,7 +129,7 @@ namespace UILibs
 
             while (!IsValidCheckNumber(num))
             {
-                num = GetUserResponse(prompt);
+                num = GetUserResponse($"Invalid entry: {prompt}");
             }
 
             return num;

@@ -77,7 +77,7 @@ namespace MidTerm
                 Console.Clear();
 
                 Console.WriteLine($"You have selected: {GetRecordInfo(Albums[itemNum])}");
-                int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? ", 10);
+                int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? Enter 0 if you've changed your mind ", 100);
 
                 if (quantity == 0)
                 {
@@ -128,12 +128,6 @@ namespace MidTerm
             PrintShoppingBag();
             GetPaymentMethod();
             Console.Clear();
-            Console.WriteLine("Thanks for shopping with us. Here's your receipt");
-            PrintReceipt();
-            Thread.Sleep(2000);
-            Console.Clear();
-            ShoppingBag = new List<ItemOrder>();
-            actions.RemoveAt(2);
         }
 
         public static void CustomerQuit()
@@ -221,7 +215,7 @@ namespace MidTerm
             Console.WriteLine();
             Console.WriteLine($"Subtotal:  \t{subtotal}");
             taxToCollect = subtotal * taxRate;
-            Console.WriteLine($"Sales Tax: \t{(taxToCollect):00.00}");
+            Console.WriteLine($"Sales Tax: \t{(taxToCollect):0.00}");
             Console.WriteLine($"Total:     \t{subtotal + taxToCollect:0.00}");
             Console.WriteLine();
         }
@@ -251,14 +245,20 @@ namespace MidTerm
 
         public static void PayWithCheck()
         {
-            string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number");
+            string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number: ");
             Console.WriteLine($"Ok, everything looks good here. ");
             Thread.Sleep(1000);
             Console.Clear();
 
-            UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            PrintShoppingBag();
+            Console.WriteLine("Thanks for shopping with us. Here's your receipt\n");
+            
+            PrintReceipt();
             Console.WriteLine($"Paid with check #: {checkNum}");
+
+            Thread.Sleep(3500);
+            Console.Clear();
+            ShoppingBag = new List<ItemOrder>();
+            actions.RemoveAt(2);
         }
     }
 }

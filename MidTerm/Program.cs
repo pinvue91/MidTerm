@@ -22,17 +22,17 @@ namespace MidTerm
         static void Main(string[] args)
 
         {
+
+            List<Album> albums = File.ReadAllLines("C:\\Users\\Duncan\\Documents\\MidtermAlbums.txt").Skip(1).Select(v => Album.FromCsv(v)).ToList();
+
             RecordStore bob = new RecordStore();
-
-            List<Albums> albums = File.ReadAllLines("C:\\Users\\Duncan\\Documents\\MidtermAlbums.txt").Skip(1).Select(v => Albums.FromCsv(v)).ToList();
-
-           // bob.PrintAlbums();
+            bob.PrintAlbums();
 
 
             Console.WriteLine("Welcome to our record store. Please select an album");
 
 
-
+          
 
         }
 

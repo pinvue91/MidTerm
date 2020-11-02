@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MidTerm
 {
-    class Cassette :Albums
+    class Cassette :Album
 
     {
 

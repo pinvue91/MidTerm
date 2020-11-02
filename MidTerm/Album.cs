@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MidTerm
 {
-    public class Albums
+    public class Album
     {
 
         public string Title { get; set; }
@@ -15,12 +15,12 @@ namespace MidTerm
         public string Year { get; set; }
         public string Description { get; set; }
 
-        StreamReader reader = new StreamReader(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt");
-        public Albums()
+        //StreamReader reader = new StreamReader(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt");
+        public Album()
         { }
 
        
-        public Albums(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description)
+        public Album(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description)
         {
         
             this.Title = Title;
@@ -32,18 +32,18 @@ namespace MidTerm
             this.Description = Description;
         }
 
+        
 
 
 
 
-
-        public static Albums FromCsv(string csvline)
+        public static Album FromCsv(string csvline)
         {
             //populates list with CSV File
 
             string[] values = csvline.Split(',');
 
-            Albums albums = new Albums();
+            Album albums = new Album();
           
             {
                 for (int i = 0; i < values.Length - 1; i++)
@@ -155,7 +155,7 @@ namespace MidTerm
 
         }
 
-        public void PrintTitles()
+        public void PrintDescription()
         {
             int counter = 1;
 

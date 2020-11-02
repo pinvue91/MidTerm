@@ -13,18 +13,18 @@ namespace MidTerm
         public RecordStore()
         {
         }
-        public void PrintAlbums()
-        {
+        //public void PrintAlbums()
+        //{
 
-            int inOut;
-            //  while (!int.TryParse(userInput, out inOut))
-            //{
-            for (int i = 0; i < albums.Count; i++)
-            {
-                Console.WriteLine($"{i}) {albums[i].Title}");
-            }
-            // }
-        }
+        //    int inOut;
+        //    //  while (!int.TryParse(userInput, out inOut))
+        //    //{
+        //    for (int i = 0; i < albums.Count; i++)
+        //    {
+        //        Console.WriteLine($"{i}) {albums[i].Title}");
+        //    }
+        //    // }
+        //}
         public Albums CheckAlbum()
         {
 

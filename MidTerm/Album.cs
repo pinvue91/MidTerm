@@ -19,23 +19,10 @@ namespace MidTerm
         public Albums()
         { }
 
-        //public Albums(string line)
-        //{
-        //    var listOfObjects = File.ReadLines(@"C:\\Users\Duncan\Documents\MidtermAlbums.txt").Select(line => new Albums(line)).ToList();
-        //    var split = line.Split(',');
-        //    Title = split[0];
-        //    Category = split[1];
-        //    Artist = split[2];
-        //    Rating = split[3];
-        //    Price = split[4];
-        //    Year = split[5];
-        //    Description = split[6];
-
-
-        //}
+       
         public Albums(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description)
         {
-            // Title = line[0];
+        
             this.Title = Title;
             this.Category = Category;
             this.Artist = Artist;
@@ -58,7 +45,7 @@ namespace MidTerm
             Albums albums = new Albums();
             //  while (!Albums.EndOfStream)
             {
-                for (int i = 0; i < values.Length; i++)
+                for (int i = 0; i < values.Length - 1; i++)
                 {
 
 

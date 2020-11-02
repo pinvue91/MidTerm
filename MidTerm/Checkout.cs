@@ -92,7 +92,7 @@ namespace MidTerm
 
                 Console.WriteLine($"{quantity} copies of {Albums[itemNum].Title}, That'll be ${totalForSelection}");
 
-                if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure?"))
+                if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure? "))
                 {
                     ShoppingBag.Add(new ItemOrder(Albums[itemNum].Title, quantity, albumPrice));
                     Console.WriteLine("Great, I've added that to your bag!");
@@ -100,6 +100,9 @@ namespace MidTerm
                 else
                 {
                     Console.WriteLine("Not a problem, let us know if you change your mind.");
+                    Thread.Sleep(1500);
+                    Console.Clear();
+                    break;
                 }
 
                 if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))

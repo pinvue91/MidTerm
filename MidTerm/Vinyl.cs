@@ -6,7 +6,6 @@ namespace MidTerm
 {
     class Vinyl:Album
     {
-
         public string Title { get; set; }
         public string Category { get; set; }
         public string Artist { get; set; }

@@ -4,7 +4,7 @@ Stop Making Sense (Vintage Copy), Rock, Talking Heads, 9/10, 24.99, 1984, Legend
 Force and Form, Electronic, Surgeon, 6/10, 23.99, 2009, Underground Techno at its best
 Amber, Electronic, Autechre, 10/10, 19.99, 1995, You can't find this ambient album anywhere but here
 Body War, Punk Rock, Show Me The Body, 6/10, 14.99, 2018, Superb punk rock from New York
-Hell Songs (Original Pressing), Punk Rock, Daughters, 9/10, 2005, 159.99,  Super rare and only here
+Hell Songs (Original Pressing), Punk Rock, Daughters, 9/10, 159.99, 2005, Super rare and only here
 Washing Machine , Punk Rock, Sonic Youth, 8/10, 19.99, 1993, The punk legends can't stop making hits
 The Infamous, Rap, Mobb Deep, 10/10, 19.99, 1993, Best rap album ever
 Millenium, Pop, Backstreet Boys, 9/10, 8.99, 1999,Legendary album by the pop stars
@@ -16,4 +16,3 @@ Songs for the Deaf, Hard Rock, Queens of the Stone Age, 7.9/10, 10.99, 2003, Mai
 Thriller, Pop, Michael Jackson, 9/10, 15, 1984, Most popular artist in our store
 The Chronic, Hip Hop, Dr.Dre, 9/10, 15.99, 2000, Roll one up and bounce to this
 Master of Puppets, Metal, Metallica, 9/10, 16.99, 1984, Genre defining metal from the masters
-NewAlbum,Rock,Someone New,8/10,10,2020,It's new and pretty ok

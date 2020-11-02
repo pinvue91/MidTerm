@@ -70,6 +70,7 @@ namespace MidTerm
 
 
 
+
         public void PrintInfo()
         {
             Console.WriteLine();
@@ -83,9 +84,88 @@ namespace MidTerm
 
         }
 
+        public void PrintTitles()
+        {
+            int counter = 1;
 
+            foreach (var title in Title)
+            {
+                Console.WriteLine($"Title {counter}: {title}");
+                counter++;
+            }
+        
+        }
+        public void PrintCategory()
+        {
+            int counter = 1;
 
+            foreach (var cat in Category)
+            {
+                Console.WriteLine($"Category {counter}: {cat}");
+                counter++;
+            }
 
+        }
+
+        public void PrintArtist()
+        {
+            int counter = 1;
+
+            foreach (var art in Artist)
+            {
+                Console.WriteLine($"Artist {counter}: {art}");
+                counter++;
+            }
+
+        }
+
+        public void PrintRating()
+        {
+            int counter = 1;
+
+            foreach (var rat in Rating)
+            {
+                Console.WriteLine($"Rating {counter}: {rat}");
+                counter++;
+            }
+
+        }
+
+        public void PrintPrice()
+        {
+            int counter = 1;
+
+            foreach (var price in Price)
+            {
+                Console.WriteLine($"Price {counter}: {price}");
+                counter++;
+            }
+
+        }
+
+        public void PrintYear()
+        {
+            int counter = 1;
+
+            foreach (var year in Year)
+            {
+                Console.WriteLine($"Year {counter}: {year}");
+                counter++;
+            }
+
+        }
+
+        public void PrintTitles()
+        {
+            int counter = 1;
+
+            foreach (var description in Description)
+            {
+                Console.WriteLine($"Description {counter}: {description}");
+                counter++;
+            }
+
+        }
         public virtual void Preview()
         {
 

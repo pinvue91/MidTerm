@@ -6,5 +6,8 @@ namespace MidTerm
 {
     public enum Genre
     {
+        Rock,
+        Pop,
+        Jazz
     }
 }

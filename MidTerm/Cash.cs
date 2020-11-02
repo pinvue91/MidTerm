@@ -32,7 +32,8 @@ namespace MidTerm
 
             while (enoughCash == false)
             {
-                if(change >=0)
+                change = cashPayment - totalPrice;
+                if (change >=0)
                 {
                     enoughCash = true;
                 }
@@ -40,7 +41,7 @@ namespace MidTerm
                 
                 if (change < 0)
                 {
-                    Console.WriteLine($"That's not enough. The total is {totalPrice}. Please enter your total cash payment: ");
+                    Console.WriteLine($"That's not enough. The total is {totalPrice:0.00}. Please enter your total cash payment: ");
                     cashPayment = int.Parse(Console.ReadLine());
                 }
             }

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace MyLibs
+namespace UILibs
 {
     public class UserInputLibrary
     {
@@ -34,7 +34,6 @@ namespace MyLibs
             }
 
             integer = int.Parse(userResponse);
-            integer--;
 
             return integer;
         }
@@ -55,6 +54,27 @@ namespace MyLibs
             while (!OptionExists(selection, options))
             {
                 selection = GetMenuSelection($"Invalid entry. {prompt}", options);
+            }
+
+            return selection;
+        }
+
+        public static int GetMenuSelection<T>(string prompt, List<T> options, List<string> UIOptions)
+        {
+            string userResponse = GetUserResponse(prompt);
+            int selection;
+
+            while (!IsInteger(userResponse))
+            {
+                userResponse = GetUserResponse($"I need a numerical response. 1-{options.Count + 1} {prompt}");
+            }
+
+            selection = int.Parse(userResponse);
+            selection--;
+
+            while (!OptionExists(selection, options, UIOptions))
+            {
+                selection = GetMenuSelection($"Invalid entry. {prompt}", options, UIOptions);
             }
 
             return selection;
@@ -103,6 +123,25 @@ namespace MyLibs
             return dateString;
         }
 
+        public static string GetCheckNumber(string prompt)
+        {
+            string num = GetUserResponse(prompt);
+
+            while (!IsValidCheckNumber(num))
+            {
+                num = GetUserResponse(prompt);
+            }
+
+            return num;
+        }
+
+        public static bool IsValidCheckNumber(string number)
+        {
+            Regex rx = new Regex(@"\d{8}");
+
+            return rx.IsMatch(number);
+        }
+
         public static bool IsInteger(string response)
         {
             return response.All(char.IsDigit);
@@ -111,6 +150,11 @@ namespace MyLibs
         public static bool OptionExists<T>(int selection, List<T> options)
         {
             return selection >= 0 && selection < options.Count;
+        }
+
+        public static bool OptionExists<T>(int selection, List<T> options, List<string> UIOptions)
+        {
+            return selection >= 0 && selection < options.Count + UIOptions.Count;
         }
 
         public static bool IsValidDate(string name)
@@ -151,12 +195,20 @@ namespace MyLibs
     {
         public static void DrawTitle(string title)
         {
-            string hr = new string('-', title.Length);
+            string hr = new string('=', title.Length);
             Console.WriteLine(title);
             Console.WriteLine(hr);
             Console.WriteLine();
         }
-        public static void DrawHr(int length)
+
+        public static void DrawSectionHeading(string title)
+        {
+            string hr = new string('-', title.Length);
+            Console.WriteLine(title);
+            Console.WriteLine(hr);
+        }
+
+        private static void DrawHr(int length)
         {
             string hr = new string('-', length);
             Console.WriteLine(hr);

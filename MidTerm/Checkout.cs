@@ -232,7 +232,6 @@ namespace MidTerm
 
             foreach (ItemOrder order in ShoppingBag)
             {
-                Console.WriteLine(order.GetOrderInfo());
                 total += order.OrderTotal;
             }
 

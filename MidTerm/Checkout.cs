@@ -128,6 +128,13 @@ namespace MidTerm
             Console.Clear();
             PrintShoppingBag();
             GetPaymentMethod();
+            Console.Clear();
+            Console.WriteLine("Thanks for shopping with us. Here's your receipt");
+            PrintReceipt();
+            Thread.Sleep(2000);
+            Console.Clear();
+            ShoppingBag = new List<ItemOrder>();
+            actions.RemoveAt(2);
         }
 
         public static void CustomerQuit()
@@ -185,11 +192,45 @@ namespace MidTerm
 
         public static void PrintShoppingBag()
         {
+            double subtotal = 0;
+            double taxRate = 0.06;
+            double taxToCollect; ;
+
             UILibs.ConsoleLibrary.DrawSectionHeading("Here's your current order");
+
             foreach (ItemOrder order in ShoppingBag)
             {
                 Console.WriteLine(order.GetOrderInfo());
+                subtotal += order.OrderTotal;
             }
+
+            Console.WriteLine();
+            Console.WriteLine($"Subtotal:  \t{subtotal}");
+            taxToCollect = subtotal * taxRate;
+            Console.WriteLine($"Sales Tax: \t{(taxToCollect):00.00}");
+            Console.WriteLine($"Total:     \t{subtotal + taxToCollect:0.00}");
+            Console.WriteLine();
+        }
+
+        public static void PrintReceipt()
+        {
+            double subtotal = 0;
+            double taxRate = 0.06;
+            double taxToCollect;
+
+            UILibs.ConsoleLibrary.DrawSectionHeading("Purchase Receipt");
+
+            foreach (ItemOrder order in ShoppingBag)
+            {
+                Console.WriteLine(order.GetOrderInfo());
+                subtotal += order.OrderTotal;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Subtotal:  \t{subtotal}");
+            taxToCollect = subtotal * taxRate;
+            Console.WriteLine($"Sales Tax: \t{(taxToCollect):00.00}");
+            Console.WriteLine($"Total:     \t{subtotal + taxToCollect:0.00}");
             Console.WriteLine();
         }
 

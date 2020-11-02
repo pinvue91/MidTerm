@@ -75,8 +75,7 @@ namespace MidTerm
             Thread.Sleep(1000);
             Console.Clear();
 
-            //UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            //Checkout.PrintShoppingBag();
+            Checkout.PrintReceipt();
             Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW: {cw}");
             Thread.Sleep(1500);
             Console.Clear();

@@ -102,7 +102,7 @@ namespace MidTerm
                     Console.WriteLine("Not a problem, let us know if you change your mind.");
                     Thread.Sleep(1500);
                     Console.Clear();
-                    break;
+                    continue;
                 }
 
                 if (!UILibs.UserInputLibrary.UserWantsToContinue("Would you like anything else? ", "Invalid entry"))
@@ -213,6 +213,11 @@ namespace MidTerm
             double taxDue = CalculateTaxDue();;
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Purchase Receipt");
+
+            foreach (ItemOrder item in ShoppingBag)
+            {
+                Console.WriteLine($"{item.ItemName} x {item.Quantity} = {item.OrderTotal}");
+            }
 
             Console.WriteLine();
             Console.WriteLine($"Subtotal:  \t{subtotal}");

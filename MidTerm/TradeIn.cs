@@ -54,6 +54,9 @@ namespace MidTerm
             a.Price = Console.ReadLine();
             Console.WriteLine("What year did this album come out?");
             a.Year = Console.ReadLine();
+            Console.WriteLine("Write a brief description of this album: ");
+            a.Description = Console.ReadLine();
+
 
 
             albumList.Add(a);

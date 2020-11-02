@@ -21,29 +21,28 @@ namespace MidTerm
 
         public void Start()
         {
-            while (true)
+            
+            UILibs.ConsoleLibrary.DrawTitle("Thanks for shopping GC Records!");
+
+            if (ShoppingBagHasItems())
             {
-                UILibs.ConsoleLibrary.DrawTitle("Thanks for shopping GC Records!");
-
-                if (ShoppingBagHasItems())
+                if (actions[2] != "Check Out")
                 {
-                    if (actions[2] != "Check Out")
-                    {
-                        actions.Insert(2, "Check Out");
-                    }
+                    actions.Insert(2, "Check Out");
                 }
-
-                if (ShoppingBagHasItems())
-                {
-                    PrintShoppingBag();
-                }
-
-                PrintActions(actions);
-
-                int selection = UILibs.UserInputLibrary.GetMenuSelection("What would you like to do? ", actions);
-
-                RunAction(actions, selection);
             }
+
+            if (ShoppingBagHasItems())
+            {
+                PrintShoppingBag();
+            }
+
+            PrintActions(actions);
+
+            int selection = UILibs.UserInputLibrary.GetMenuSelection("What would you like to do? ", actions);
+
+            RunAction(actions, selection);
+            
         }
 
         public void RunAction(List<string> actions, int selection)

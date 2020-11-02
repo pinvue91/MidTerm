@@ -91,7 +91,7 @@ namespace MidTerm
         //override ToString()
         public override string ToString()
         {
-            return String.Format($"{Title},{Category},{Artist},{Rating},{Price}, {Description}");
+            return String.Format($"{Title},{Category},{Artist},{Rating},{Price},{Year},{Description}");
         }
 
 

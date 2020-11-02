@@ -29,7 +29,7 @@ namespace MidTerm
             Checkout.PrintReceipt();
             Console.WriteLine($"Paid in full with check #: {checkNum}");
 
-            Thread.Sleep(3500);
+            Thread.Sleep(5000);
             Console.Clear();
             Checkout.ShoppingBag = new List<ItemOrder>();
             Checkout.actions.RemoveAt(2);

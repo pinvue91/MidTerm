@@ -11,14 +11,14 @@ namespace MidTerm
         public static void TradeInAlbum()
         {
 
-            List<Albums> albumList = new List<Albums>();
+            List<Album> albumList = new List<Album>();
 
             StreamReader reader = new StreamReader("../../../AlbumsList.txt");
             string albumRead = reader.ReadLine();
             while (albumRead != null) 
             {
 
-                Albums albumToAdd = new Albums(); 
+                Album albumToAdd = new Album(); 
 
                 string[] albumArray = albumRead.Split(",");
 
@@ -40,7 +40,7 @@ namespace MidTerm
 
             //creating a new album object from user input and adding to the album list
 
-            Albums a = new Albums();
+            Album a = new Album();
 
             Console.WriteLine("Please enter the album you want to trade in:");
             a.Title = Console.ReadLine();
@@ -62,7 +62,7 @@ namespace MidTerm
             Console.WriteLine($"Thanks for selling {a.Title} to us! Here's $3. That's all I have. Have a nice day!");
 
             StreamWriter streamWriter = new StreamWriter("../../../AlbumsList.txt");
-            foreach (Albums album in albumList)
+            foreach (Album album in albumList)
             {
                 streamWriter.WriteLine(album); //the TextWriter.WriteLine() method uses the ToString() method. You'll need to override ToString() in Albums class and add each property
 

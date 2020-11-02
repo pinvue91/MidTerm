@@ -4,10 +4,8 @@ using System.Text;
 
 namespace MidTerm
 {
-
-    class Vinyl : Albums
+    class Vinyl:Album
     {
-
         public string Title { get; set; }
         public string Category { get; set; }
         public string Artist { get; set; }
@@ -32,9 +30,11 @@ namespace MidTerm
                 break;
             }
         }
+
         public Vinyl()
         { }
-        public Vinyl(string Title, string Category, string Artist, string Rating, double Price, DateTime DateTime, string Description)
+
+        public Vinyl (string Title, string Category, string Artist, string Rating, double Price, DateTime DateTime, string Description)
         {
             this.Title = Title;
             this.Category = Category;
@@ -44,6 +44,5 @@ namespace MidTerm
             this.DateTime = DateTime;
             this.Description = Description;
         }
-
     }
 }

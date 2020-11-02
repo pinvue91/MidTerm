@@ -5,10 +5,10 @@ using System.Text;
 
 namespace MidTerm
 {
-    public class RecordStore:Albums
+    public class RecordStore:Album
     {
 
-        public List<Albums> albums { get; set; }
+        public List<Album> albums { get; set; }
 
         public RecordStore()
         {
@@ -25,7 +25,7 @@ namespace MidTerm
         //    }
         //    // }
         //}
-        public Albums CheckAlbum()
+        public Album CheckAlbum()
         {
 
                 string userResponse = Console.ReadLine();

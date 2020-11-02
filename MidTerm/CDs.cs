@@ -4,11 +4,8 @@ using System.Text;
 
 namespace MidTerm
 {
-<<<<<<< HEAD
-    class CDs
-    {
-=======
 
+    
     class CDs:Albums
 
 
@@ -30,6 +27,6 @@ namespace MidTerm
             this.Year = Year;
             this.Description = Description;
         }
->>>>>>> Duncan
+
     }
 }

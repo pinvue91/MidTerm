@@ -76,6 +76,8 @@ namespace MidTerm
 
             streamWriter.Close();
 
+            Console.Clear();
+
         }
     }
 }

@@ -77,7 +77,7 @@ namespace MidTerm
                 Console.Clear();
 
                 Console.WriteLine($"You have selected: {GetRecordInfo(Albums[itemNum])}");
-                int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? Enter 0 if you've changed your mind ", 100);
+                int quantity = UILibs.UserInputLibrary.GetIntegerResponse("How many would you like? ", 100);
 
                 if (quantity == 0)
                 {

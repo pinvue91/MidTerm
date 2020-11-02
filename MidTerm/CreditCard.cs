@@ -20,7 +20,23 @@ namespace MidTerm
 
         }
 
-        //method overrides
+        //method 
+
+        public static void PayWithCredit()
+        {
+            int creditCardNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 16 digit credit card number: ");
+            string expirationDate = UILibs.UserInputLibrary.GetCheckNumber("Enter your card expiration date (mm/yy): ");
+            string cw = UILibs.UserInputLibrary.GetCheckNumber("Enter your card CW: ");
+
+            Console.WriteLine($"Ok, everything looks good here. ");
+            Thread.Sleep(1000);
+            Console.Clear();
+
+            UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
+            PrintShoppingBag();
+            Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW {cw}");
+
+        }
 
 
     }

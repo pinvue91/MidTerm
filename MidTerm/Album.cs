@@ -6,7 +6,6 @@ namespace MidTerm
 {
     public class Album
     {
-
         public string Title { get; set; }
         public string Category { get; set; }
         public string Artist { get; set; }
@@ -18,7 +17,6 @@ namespace MidTerm
         StreamReader reader = new StreamReader(@"../../../MidtermAlbums.txt");
         public Album()
         { }
-
        
         public Album(string Title, string Category, string Artist, string Rating, string Price, string Year, string Description)
         {

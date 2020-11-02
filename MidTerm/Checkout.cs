@@ -53,18 +53,18 @@ namespace MidTerm
             {
                 AddItemToShoppingCart();
             }
-            //else if (action == "Trade In")
-            //{
-            //    TradeIn();
-            //}
+            else if (action == "Trade In")
+            {
+                TradeIn();
+            }
             //else if (action == "Check Out")
             //{
             //    CompletePurchase();
             //}
-            //else if (action == "Quit")
-            //{
-            //    CustomerQuit();
-            //}
+            else if (action == "Quit")
+            {
+                CustomerQuit();
+            }
         }
 
         public void AddItemToShoppingCart()
@@ -86,13 +86,14 @@ namespace MidTerm
             }
 
             Console.Clear();
-            //double totalForSelection = albums[itemNum].Price * quantity;
+            double albumPrice = double.Parse(Albums[itemNum].Price);
+            double totalForSelection = albumPrice * quantity;
 
-            //Console.WriteLine($"{quantity} copies of {albums[itemNum].Title}, That'll be ${totalForSelection}");
+            Console.WriteLine($"{quantity} copies of {Albums[itemNum].Title}, That'll be ${totalForSelection}");
 
             if (UILibs.UserInputLibrary.GetYesOrNoInput("Are you sure?"))
             {
-                //ShoppingBag.Add(new ItemOrder(albums[itemNum].Title, quantity, albums[itemNum].Price));
+                ShoppingBag.Add(new ItemOrder(Albums[itemNum].Title, quantity, albumPrice));
                 Console.WriteLine("Great, I've added that to your bag!");
             }
             else
@@ -122,20 +123,23 @@ namespace MidTerm
             Console.WriteLine();
         }
 
-        //public static void TradeIn()
-        //{
-        //    Console.Clear();
-        //    UILibs.ConsoleLibrary.DrawSectionHeading("What're ya selling?!?");
+        public void TradeIn()
+        {
+            Console.Clear();
+            UILibs.ConsoleLibrary.DrawSectionHeading("What're ya selling?!?");
 
-        //    string title = UILibs.UserInputLibrary.GetUserResponse("What's the name of your album? ");
-        //    string artist = UILibs.UserInputLibrary.GetUserResponse("What's the name the artist? ");
-        //    //string genre = UILibs.UserInputLibrary.GetUserResponse("What's the genre of this album? ");
-        //    string review = UILibs.UserInputLibrary.GetUserResponse("What rating would you give this album? ");
+            string title = UILibs.UserInputLibrary.GetUserResponse("What's the name of your album? ");
+            string artist = UILibs.UserInputLibrary.GetUserResponse("What's the name the artist? ");
+            string category = UILibs.UserInputLibrary.GetUserResponse("What's the genre of this album? ");
+            string rating = UILibs.UserInputLibrary.GetUserResponse("What rating would you give this album? ");
+            string year = UILibs.UserInputLibrary.GetUserResponse("What year was this album released? ");
+            string description = UILibs.UserInputLibrary.GetUserResponse("Give a brief description of this album ");
 
-        //    Console.WriteLine($"Alright, {title} by {artist}...I can give you about $3.50");
-        //    //albums.Add(new Album(title, Genre.Rock, artist, review, 12));
-        //    Console.Clear();
-        //}
+            Albums.Add(new Album(title, category, artist, rating, "10", year, description));
+            Console.WriteLine($"Alright, {title} by {artist}...I can give you about $3.50");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
 
         //public static void CompletePurchase()
         //{
@@ -144,27 +148,19 @@ namespace MidTerm
         //    GetPaymentMethod();
         //}
 
-        //public static void CustomerQuit()
-        //{
-        //    Console.WriteLine("Alright, see you next time");
-        //    ShoppingBag = new List<ItemOrder>();
-        //    actions.RemoveAt(2);
-        //    Thread.Sleep(1500);
-        //    Console.Clear();
-        //}
+        public static void CustomerQuit()
+        {
+            Console.WriteLine("Alright, see you next time");
+            ShoppingBag = new List<ItemOrder>();
+            actions.RemoveAt(2);
+            Thread.Sleep(1500);
+            Console.Clear();
+        }
 
         public string GetRecordInfo(Album record)
         {
-            return $"{record.Title} by {record.Description} | ${record.Price}";
+            return $"{record.Title} by {record.Artist} | ${record.Price}";
         }
-
-        //    public static void GetGenre(Genre genre)
-        //    {
-        //        foreach (int i in Enum.GetValues(typeof(Genre)))
-        //        {
-        //            Console.WriteLine($" {i}");
-        //        }
-        //    }
 
         //    public static void GetPaymentMethod()
         //    {
@@ -227,16 +223,16 @@ namespace MidTerm
             Console.WriteLine();
         }
 
-        public static void PayWithCheck()
-        {
-            string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number");
-            Console.WriteLine($"Ok, everything looks good here. ");
-            Thread.Sleep(1000);
-            Console.Clear();
+        //public static void PayWithCheck()
+        //{
+        //    string checkNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 8 digit check number");
+        //    Console.WriteLine($"Ok, everything looks good here. ");
+        //    Thread.Sleep(1000);
+        //    Console.Clear();
 
-            UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            PrintShoppingBag();
-            Console.WriteLine($"Paid with check #: {checkNum}");
-        }
+        //    UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
+        //    PrintShoppingBag();
+        //    Console.WriteLine($"Paid with check #: {checkNum}");
+        //}
     }
 }

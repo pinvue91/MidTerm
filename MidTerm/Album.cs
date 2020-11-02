@@ -39,11 +39,12 @@ namespace MidTerm
 
         public static Albums FromCsv(string csvline)
         {
+            //populates list with CSV File
 
             string[] values = csvline.Split(',');
 
             Albums albums = new Albums();
-            //  while (!Albums.EndOfStream)
+          
             {
                 for (int i = 0; i < values.Length - 1; i++)
                 {
@@ -90,6 +91,11 @@ namespace MidTerm
 
         }
 
+        //override ToString()
+        public override string ToString()
+        {
+            return String.Format($"{Title},{Category},{Artist},{Rating},{Price}, {Description}");
+        }
 
 
 

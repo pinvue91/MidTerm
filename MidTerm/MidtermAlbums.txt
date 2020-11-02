@@ -1,18 +1,19 @@
-TITLE, GENRE, ARTIST, 10/10, PRICE, DATE RELEASED, REVIEW
-Pretty Hate Machine, Industrial, Nine Inch Nails, 7/10, 19.99, 1989, Industrial rock at its best
-Stop Making Sense (Vintage Copy), Rock, Talking Heads, 9/10, 24.99, 1984, Legendary album is a must have
-Force and Form, Electronic, Surgeon, 6/10, 23.99, 2010, Underground Techno at its best
-Amber, Electronic, Autechre, 10/10, 19.99, 1994, You can't find this ambient album anywhere but here
-Body War, Punk Rock, Show Me The Body, 6/10, 14.99, 2018, Superb punk rock from New York
-Hell Songs (Original Pressing), Punk Rock, Daughters, 9/10, 159.99, 2006, Super rare and only here
-Washing Machine , Punk Rock, Sonic Youth, 8/10, 19.99, 1995, The punk legends can't stop making hits
-The Infamous, Rap, Mobb Deep, 10/10, 19.99, 1993, Best rap album ever
-Millenium, Pop, Backstreet Boys, 9/10, 8.99, 1999, Legendary album by the pop stars
-...Baby One More Time, Pop, Britney Spears, 8/10, 15.99, 1998, Britney at her best
-Aquarium, Pop, Aqua, 7/10, 7.99, 1994, We can never have enough Aqua
-Hotel California, Rock, Eagles, 10/10, 9.99, 1974, The legends of rock can't miss
-Led Zepplin IV (Original Copy), Hard Rock/Heavy, Led Zepplin, 9/10, 130.99, 1976, Original vinyl copy of the classic album
-Songs for the Deaf, Hard Rock, Queens of the Stone Age, 7.9/10, 10.99, 2003, Mainstream busting album of the lifetime rockers
-Thriller, Pop, Michael Jackson, 9/10, 15, 1982, Most popular artist in our store
-The Chronic, Hip Hop, Dr.Dre, 9/10, 15.99, 1994, Roll one up and bounce to this
-Master of Puppets, Metal, Metallica, 9/10, 16.99, 1994, Genre defining metal from the masters
+TITLE, GENRE, ARTIST, 10/10, PRICE,  REVIEW
+Pretty Hate Machine, Industrial, Nine Inch Nails, 7/10, 19.99,  Industrial rock at its best
+Stop Making Sense (Vintage Copy), Rock, Talking Heads, 9/10, 24.99,  Legendary album is a must have
+Force and Form, Electronic, Surgeon, 6/10, 23.99,  Underground Techno at its best
+Amber, Electronic, Autechre, 10/10, 19.99,  You can't find this ambient album anywhere but here
+Body War, Punk Rock, Show Me The Body, 6/10, 14.99,  Superb punk rock from New York
+Hell Songs (Original Pressing), Punk Rock, Daughters, 9/10, 159.99,  Super rare and only here
+Washing Machine , Punk Rock, Sonic Youth, 8/10, 19.99,  The punk legends can't stop making hits
+The Infamous, Rap, Mobb Deep, 10/10, 19.99,  Best rap album ever
+Millenium, Pop, Backstreet Boys, 9/10, 8.99,  Legendary album by the pop stars
+...Baby One More Time, Pop, Britney Spears, 8/10, 15.99,  Britney at her best
+Aquarium, Pop, Aqua, 7/10, 7.99,  We can never have enough Aqua
+Hotel California, Rock, Eagles, 10/10, 9.99,  The legends of rock can't miss
+Led Zepplin IV (Original Copy), Hard Rock/Heavy, Led Zepplin, 9/10, 130.99,  Original vinyl copy of the classic album
+Songs for the Deaf, Hard Rock, Queens of the Stone Age, 7.9/10, 10.99,  Mainstream busting album of the lifetime rockers
+Thriller, Pop, Michael Jackson, 9/10, 15,  Most popular artist in our store
+The Chronic, Hip Hop, Dr.Dre, 9/10, 15.99,  Roll one up and bounce to this
+Master of Puppets, Metal, Metallica, 9/10, 16.99,  Genre defining metal from the masters
+newAlbum,rock,someone,7/10,10, 

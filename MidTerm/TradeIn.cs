@@ -13,7 +13,7 @@ namespace MidTerm
 
             List<Album> albumList = new List<Album>();
 
-            StreamReader reader = new StreamReader("../../../AlbumsList.txt");
+            StreamReader reader = new StreamReader("../../../MidtermAlbums.txt");
             string albumRead = reader.ReadLine();
             while (albumRead != null) 
             {
@@ -61,7 +61,7 @@ namespace MidTerm
             Console.WriteLine();
             Console.WriteLine($"Thanks for selling {a.Title} to us! Here's $3. That's all I have. Have a nice day!");
 
-            StreamWriter streamWriter = new StreamWriter("../../../AlbumsList.txt");
+            StreamWriter streamWriter = new StreamWriter("../../../MidtermAlbums.txt");
             foreach (Album album in albumList)
             {
                 streamWriter.WriteLine(album); //the TextWriter.WriteLine() method uses the ToString() method. You'll need to override ToString() in Albums class and add each property

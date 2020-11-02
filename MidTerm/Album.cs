@@ -14,7 +14,8 @@ namespace MidTerm
         public string Year { get; set; }
         public string Description { get; set; }
 
-        StreamReader reader = new StreamReader(@"../../../MidtermAlbums.txt");
+        //StreamReader reader = new StreamReader(@"../../../MidtermAlbums.txt");
+
         public Album()
         { }
        
@@ -64,8 +65,6 @@ namespace MidTerm
             return albums;
 
         }
-
-
 
 
         public void PrintInfo()

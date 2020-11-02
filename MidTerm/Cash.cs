@@ -24,19 +24,21 @@ namespace MidTerm
         {
             bool enoughCash = false;
 
-            int cashPayment = UILibs.UserInputLibrary.GetCheckNumber("Please enter your total cash payment: ");
+            Console.WriteLine("Please enter your total cash payment: ");
 
-            int change = totalPrice - cashPayment;
+            int cashPayment = int.Parse(Console.ReadLine());
+
+            int change = cashPayment - totalPrice;
 
             while (enoughCash == false)
             {
-                if(change <=0)
+                if(change >=0)
                 {
                     enoughCash = true;
                 }
                 
                 
-                if (change > 0)
+                if (change < 0)
                 {
                     Console.WriteLine($"That's not enough. The total is {totalPrice}. Please enter your total cash payment: ");
                     cashPayment = int.Parse(Console.ReadLine());

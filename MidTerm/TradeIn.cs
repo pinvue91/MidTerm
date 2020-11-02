@@ -8,7 +8,7 @@ namespace MidTerm
     class TradeIn
     {
 
-        public static void TradeIn()
+        public static void TradeInAlbum()
         {
 
             List<Albums> albumList = new List<Albums>();
@@ -24,9 +24,11 @@ namespace MidTerm
 
                 albumToAdd.Title = albumArray[0]; 
                 albumToAdd.Category = albumArray[1]; 
-                albumToAdd.Description = albumArray[2];
-                albumToAdd.Review = albumArray[3];
-                albumToAdd.Price = int.Parse(albumArray[4]);
+                albumToAdd.Artist = albumArray[2];
+                albumToAdd.Rating = albumArray[3];
+                albumToAdd.Price = albumArray[4];
+                albumToAdd.Year = albumArray[5];
+                albumToAdd.Description = albumArray[6];
 
                 albumList.Add(albumToAdd);
 
@@ -40,16 +42,19 @@ namespace MidTerm
 
             Albums a = new Albums();
 
-            Console.WriteLine("Please enter the album you want to sell to us:");
-            a.Title = (Console.ReadLine());
+            Console.WriteLine("Please enter the album you want to trade in:");
+            a.Title = Console.ReadLine();
             Console.WriteLine("What is the category of this album?");
             a.Category = Console.ReadLine(); 
             Console.WriteLine("Please enter the Artist name:");
-            a.Description = Console.ReadLine();
-            Console.WriteLine("Please enter your rating out of ten (e.g. 8/10) or a descriptive review:");
-            a.Review = Console.ReadLine();
+            a.Artist = Console.ReadLine();
+            Console.WriteLine("Please enter your rating out of ten (e.g. 8/10):");
+            a.Rating = Console.ReadLine();
             Console.WriteLine("What is the value of this album?");
-            a.Price = int.Parse(Console.ReadLine());
+            a.Price = Console.ReadLine();
+            Console.WriteLine("What year did this album come out?");
+            a.Year = Console.ReadLine();
+
 
             albumList.Add(a);
 

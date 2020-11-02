@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace MidTerm
 {
@@ -24,17 +25,30 @@ namespace MidTerm
 
         public static void PayWithCredit()
         {
-            int creditCardNum = UILibs.UserInputLibrary.GetCheckNumber("Enter your 16 digit credit card number: ");
-            string expirationDate = UILibs.UserInputLibrary.GetCheckNumber("Enter your card expiration date (mm/yy): ");
-            string cw = UILibs.UserInputLibrary.GetCheckNumber("Enter your card CW: ");
+
+            Console.WriteLine("Enter your 16 digit credit card number: ");
+
+            int creditCardNum;
+
+            while (!int.TryParse(Console.ReadLine(), out creditCardNum) && creditCardNum.ToString().Length != 16)
+            {
+                Console.WriteLine("Invalid credit card number!\nPlease enter a 16 digit credit card number:");
+                creditCardNum = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Enter your card expiration date (mm/yy): ");
+            string expirationDate = Console.ReadLine();
+
+            Console.WriteLine("Enter your 3 digit card CW: ");
+            int cw = int.Parse(Console.ReadLine());
 
             Console.WriteLine($"Ok, everything looks good here. ");
             Thread.Sleep(1000);
             Console.Clear();
 
             UILibs.ConsoleLibrary.DrawSectionHeading("Here's your receipt.");
-            PrintShoppingBag();
-            Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW {cw}");
+            Checkout.PrintShoppingBag();
+            Console.WriteLine($"Paid with credit card#: {creditCardNum}\nExpiration Date: {expirationDate}\nCW: {cw}");
 
         }
 
